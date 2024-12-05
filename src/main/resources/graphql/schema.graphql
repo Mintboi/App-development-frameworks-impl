@@ -1,0 +1,23 @@
+type Pet {
+  id: ID!
+  name: String!
+  type: String!
+  household: Household
+}
+
+type Household {
+  id: ID!
+  address: String!
+  pets: [Pet]
+}
+
+type Query {
+  getPetById(id: ID!): Pet
+  getAllPets: [Pet]
+}
+
+type Mutation {
+  createPet(name: String!, type: String!, householdId: ID): Pet
+  updatePet(id: ID!, name: String, type: String): Pet
+  deletePet(id: ID!): Boolean
+}
